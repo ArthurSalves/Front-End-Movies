@@ -11,11 +11,12 @@ jobs:
   build:
 
     runs-on: self-hosted
+    
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: sudo docker build -t frontend /home/ubuntu/frontend/_work/Front-End-Movies/Front-End-Movies
+      run: sudo docker build -t backend /home/ubuntu/frontend/_work/Front-End-Movies/Front-End-Movies
     - name: Run the Docker Image
       run: CI=true sudo docker run -d --publish 3000:3000 frontend
       
