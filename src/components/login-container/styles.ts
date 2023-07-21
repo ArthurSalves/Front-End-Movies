@@ -4,7 +4,7 @@ interface Props {
     isMobile: boolean
 }
 
-export const ContentLoginStyled = styled.div<Props>`
+export const ContentLoginStyled = styled.form<Props>`
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 4px;
     box-sizing: border-box;

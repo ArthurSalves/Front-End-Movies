@@ -1,4 +1,3 @@
-import Layout from '@/components/layout'
 import DeviceDetect from '@/utils/deviceDetect'
 import {
     BodyContainerStyled,
@@ -8,9 +7,31 @@ import {
 } from './styles'
 import { InputLogin } from './input'
 import { ButtonLogin } from './button'
+import { useAuthContext } from '@/contexts/auth'
+import React, { useState } from 'react'
 
-export default function LoginContainer() {
+const LoginContainer: React.FC = () => {
     const isMobile = DeviceDetect().isMobile
+    const { login } = useAuthContext()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    
+    const handleLogin = async (e:React.MouseEvent) => {
+        e.preventDefault()
+        const teste = await login(email, password)
+        console.log(teste);
+        
+    }
+
+    const handleChangeEmail = (e:React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setEmail(e.target.value)
+    }
+
+    const handleChangePassword = (e:React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setPassword(e.target.value)
+    }
     return (
         <BodyContainerStyled isMobile={isMobile}>
             <ContainerLoginStyled isMobile={isMobile}>
@@ -19,18 +40,22 @@ export default function LoginContainer() {
                     <InputLogin
                         isMobile={isMobile}
                         label="Email or phone number"
+                        value = {email}
                         id="inputLoginMail"
                         type="text"
+                        onChangeInput={(e) => handleChangeEmail(e)}
                     />
                     <InputLogin
                         isMobile={isMobile}
                         label="Password"
+                        value = {password}
                         id="inputLoginPassword"
                         type="password"
+                        onChangeInput={(e) => handleChangePassword(e)}
                     />
                     <ButtonLogin
                         isMobile={isMobile}
-                        onClick={() => console.log('teste  ')}
+                        onClick={(e) => handleLogin(e)}
                     >
                         Sign In
                     </ButtonLogin>
@@ -39,3 +64,4 @@ export default function LoginContainer() {
         </BodyContainerStyled>
     )
 }
+export default LoginContainer

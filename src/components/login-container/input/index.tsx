@@ -9,29 +9,35 @@ export interface Props {
     isMobile: boolean
     label: string
     id: string
+    onChangeInput: (e:React.ChangeEvent<HTMLInputElement>) => void
     type: string
+    value: string
 }
+
 
 export const InputLogin: FunctionComponent<Props> = ({
     isMobile,
     label,
-    id,
-    type
+    onChangeInput,
+    ...props
 }) => {
-    const [inputValue, setInputValue] = useState('')
+    
+    const handleChangeIput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChangeInput(e)
+    }
+
     return (
         <ContainerInputLoginStyled>
             <InputLoginStyled
                 isMobile={isMobile}
-                hasContent={!!inputValue}
-                onChange={e => setInputValue(e.target.value)}
-                type={type}
-                id={id}
+                hasContent={!!props.value}
+                onChange={(e) => handleChangeIput(e)}
+                {...props}
             />
             <LabelInputLoginStyled
                 isMobile={isMobile}
-                hasContent={!!inputValue}
-                htmlFor={id}
+                hasContent={!!props.value}
+                htmlFor={props.id}
             >
                 {label}
             </LabelInputLoginStyled>

@@ -38,7 +38,6 @@ export const LabelInputLoginStyled = styled.label<PropsLabel>`
     position: absolute;
     transition: font 0.1s ease, transform 0.1s ease;
     color: #8c8c8c;
-    font-family: Arial;
     left: 20px;
     font-size: 16px;
     top: 7px;

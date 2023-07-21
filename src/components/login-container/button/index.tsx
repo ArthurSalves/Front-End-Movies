@@ -1,10 +1,10 @@
-import { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import { ButtonLoginStyled } from './styles'
 
 export interface Props {
     isMobile: boolean
     children: any
-    onClick: () => void
+    onClick: (e: React.MouseEvent) => void
 }
 
 export const ButtonLogin: FunctionComponent<Props> = ({
