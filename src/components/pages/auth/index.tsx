@@ -13,14 +13,13 @@ const AuthScreen: FunctionComponent = () => {
     const isMobile = DeviceDetect().isMobile
     return (
         <Layout isMobile={isMobile}>
-            <AuthScreenStyled src="/images/hero.jpg">
-                <BackgroundLayerStyled>
-                    <NavBarStyled>
-                        <LogoStyled src="/images/logo.png" />
-                    </NavBarStyled>
-                    <LoginContainer />
-                </BackgroundLayerStyled>
-            </AuthScreenStyled>
+            <AuthScreenStyled src="/images/hero.jpg" />
+            <BackgroundLayerStyled>
+                <NavBarStyled>
+                    <LogoStyled src="/images/logo.png" />
+                </NavBarStyled>
+                <LoginContainer />
+            </BackgroundLayerStyled>
         </Layout>
     )
 }

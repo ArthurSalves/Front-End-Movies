@@ -4,11 +4,9 @@ interface Props {
     src: string
 }
 
-export const AuthScreenStyled = styled.div<Props>`
-    position: relative;
+export const AuthScreenStyled = styled.img<Props>`
     width: 100%;
     height: 100%;
-    background: ${props => `url(${props.src}) no-repeat top center`};
 `
 
 export const NavBarStyled = styled.nav`
